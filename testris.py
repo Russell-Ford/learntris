@@ -140,13 +140,13 @@ def run_tests(program_args, use_shell):
         print("\n") # add 2 blank lines between tests
 
 def find_learntris():
-    default = "./learntris"
+    default = "learntris.py"
     program_args = sys.argv[1:] if len(sys.argv) >= 2 else [default]
     if "--shell" in program_args: # --shell option
         program_args.remove("--shell")
         return (program_args, True)
     elif os.path.exists(program_args[0]):
-        return (program_args, False)
+        return (program_args, True)
     elif program_args[0] == default:
         print(__doc__)
         raise FileNotFoundError(default)
